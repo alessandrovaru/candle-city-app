@@ -1,7 +1,7 @@
 
-import { Hero } from "./components/home/Hero";
-import { Description } from "./components/home/Description";
-import { MainProducts } from "./components/home/MainProducts";
+import { Hero } from "../components/home/Hero";
+import { Description } from "../components/home/Description";
+import { MainProducts } from "../components/home/MainProducts";
 
 
 export default function Home() {
