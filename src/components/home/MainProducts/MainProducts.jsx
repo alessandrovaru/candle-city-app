@@ -1,4 +1,20 @@
-export const MainProducts = () => {
+const getProduct = async () => {
+  const response = await fetch(`${process.env.SHOPIFY_HOSTNAME}/admin/api/2023-10/products.json`, {
+    headers: {
+      'X-Shopify-Access-Token': process.env.SHOPIFY_ACCESS_TOKEN,
+    },
+  });
+  const data = await response.json();
+  return data;
+};
+
+
+export const MainProducts = async () => {
+
+  const products = await getProduct();
+  console.log(JSON.stringify(products));
+  
+  
   return (
     <div className="main-products">
       <div className="container">
