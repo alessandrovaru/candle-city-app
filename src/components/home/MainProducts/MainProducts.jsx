@@ -1,5 +1,7 @@
 import Image from "next/image";
 
+import styles from "./MainProducts.module.sass";
+
 
 const getProduct = async () => {
   try {
@@ -33,7 +35,9 @@ export const MainProducts = async () => {
                 return (
                   <div key={product.id}>
                     <h2>{product.title}</h2>
-                    <Image src={imageSrc} fill alt={product.title} loading="eager" />
+                    <div className={styles.imageContainer}>
+                      <Image src={imageSrc} fill alt={product.title} loading="eager" />
+                    </div>
                     <button>Shop Now</button>
                   </div>
                 );
