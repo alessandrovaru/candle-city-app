@@ -1,13 +1,20 @@
-const getProduct = async () => {
-  const response = await fetch(`${process.env.SHOPIFY_HOSTNAME}/admin/api/2023-10/products.json`, {
-    headers: {
-      'X-Shopify-Access-Token': process.env.SHOPIFY_ACCESS_TOKEN,
-    },
-  });
-  const data = await response.json();
-  return data;
-};
+import Image from "next/image";
 
+
+const getProduct = async () => {
+  try {
+    const response = await fetch(`${process.env.SHOPIFY_HOSTNAME}/admin/api/2023-10/products.json`, {
+      headers: {
+        'X-Shopify-Access-Token': process.env.SHOPIFY_ACCESS_TOKEN,
+      },
+    });
+    const { products } = await response.json();
+    return products;
+  } catch (error) {
+    console.error('Error fetching products:', error);
+    return null;
+  }
+};
 
 export const MainProducts = async () => {
 
@@ -21,13 +28,17 @@ export const MainProducts = async () => {
         <div className="row">
           <div className="col-md-6">
             <div className="main-products__content">
-              <h2 className="main-products__title">New Arrivals</h2>
-              <p className="main-products__text">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-                venenatis, eros scelerisque volutpat fringilla, mi diam varius
-                est, a vehicula nunc turpis at ante.
-              </p>
-              <button className="main-products__btn">Shop Now</button>
+            {products?.map((product) => {
+                const imageSrc = product.images[0].src;
+                return (
+                  <div key={product.id}>
+                    <h2>{product.title}</h2>
+                    <Image src={imageSrc} fill alt={product.title} loading="eager" />
+                    <button>Shop Now</button>
+                  </div>
+                );
+              }
+            )}
             </div>
           </div>
           <div className="col-md-6">
