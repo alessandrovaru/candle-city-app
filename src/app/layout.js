@@ -2,6 +2,8 @@ import { Montserrat } from "next/font/google";
 
 import { Footer } from "../components/shared/Footer";
 import { Header } from "../components/shared/Header";
+import { Hero } from "../components/home/Hero";
+import { Description } from "../components/home/Description";
 
 import styles from "app/sass/globals.sass";
 
@@ -17,6 +19,8 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={montserrat.className}>
         <Header />
+        <Hero />
+        <Description />
         {children}
         <Footer />
       </body>

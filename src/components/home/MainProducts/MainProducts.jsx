@@ -21,7 +21,6 @@ const getProduct = async () => {
 export const MainProducts = async () => {
 
   const products = await getProduct();
-  console.log(JSON.stringify(products));
   
   
   return (
