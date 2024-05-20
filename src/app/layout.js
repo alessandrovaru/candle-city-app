@@ -19,8 +19,6 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body className={montserrat.className}>
         <Header />
-        <Hero />
-        <Description />
         {children}
         <Footer />
       </body>
