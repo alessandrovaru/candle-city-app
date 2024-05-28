@@ -1,6 +1,6 @@
 export default function CategoryPage(props) {
-  console.log(props);
   const { params } = props; 
+  throw new Error('Error fetching products');
   return (
     <div>
       <h1>Categories: {params.categories} </h1>
