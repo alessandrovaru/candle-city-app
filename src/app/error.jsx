@@ -9,7 +9,7 @@ export default function GlobalError(props) {
     <main className={styles.Error}>
       <h1 className={styles.Error__title}>Ha ocurrido un error</h1>
       <Image 
-        src="/images/error.svg"
+        src="/images/error.png"
         alt="Error"
         width={500}
         height={500}
