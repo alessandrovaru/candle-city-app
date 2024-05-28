@@ -30,7 +30,7 @@ export const MainProducts = async () => {
         <div className="row">
           <div className="col-md-6">
             <div className="main-products__content">
-            {products.map((product) => {
+            {products?.map((product) => {
                 const imageSrc = product.images[0].src;
                 return (
                   <div key={product.id}>
